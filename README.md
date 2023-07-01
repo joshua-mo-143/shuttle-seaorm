@@ -4,7 +4,14 @@ A `seaorm` resource for Shuttle that returns a SeaORM connection pool.
 
 ## Usage
 
-Simply load up a Shuttle project and replace `shuttle_shared_db` with `shuttle_seaorm` like so:
+You'll need to install seaORM on your Shuttle project to be able to use this. You can do that by running the following command:
+
+```sh
+cargo add sea-orm --features seaorm/runtime-tokio-native-tls,seaorm/sqlx-postgres
+cargo add shuttle-seaorm --git https://github.com/joshua-mo-143/shuttle-seaorm.git
+```
+
+Then when you're writing your Shuttle app, annotate your main entrypoint function with `shuttle_seaorm` like so:
 
 ```rust
 use axum::{routing::get, Router};

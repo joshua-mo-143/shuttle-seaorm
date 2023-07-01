@@ -1,6 +1,7 @@
 use axum::{routing::get, Router};
 use sea_orm::DatabaseConnection;
 
+#[derive(Clone)]
 struct AppState {
     pool: DatabaseConnection,
 }
